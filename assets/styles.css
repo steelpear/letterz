@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Scriptorama";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  unicode-range: U+000-5FF;
+  src: local("Scriptorama"), url("~/assets/fonts/scriptorama.woff2") format("woff2");
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.3s;
+}
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
+}
+.first-letter {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: serif;
+  color: #004D40;
+}
+.letter-text img {
+  max-width: -webkit-fill-available;
+  margin: auto;
+}
+.letter-text p { margin-bottom: 2px !important; }
+.letter-text p img { display: block; }
+.ql-align-center { text-align: center; }
+.ql-align-justify { text-align: justify; }
+.ql-align-right { text-align: right; }
+.quillWrapper .ql-snow.ql-toolbar { background: #F0F0F0; }
+
+.logo_small {
+  cursor: default;
+  font-family: "Scriptorama", sans-serif;
+  color: white;
+  font-size: 60px;
+}
