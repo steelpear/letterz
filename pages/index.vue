@@ -30,7 +30,8 @@
         horizontal-order="true"
         transition-duration="0.3s"
         item-selector=".letter"
-        class="letters-wrap mt-16"
+        class="letters-wrap"
+        :class="$vuetify.breakpoint.xsOnly ? 'mt-8' : 'mt-16'"
       >
         <v-col
           v-for="(letter, index) in filteredLetters"
@@ -97,7 +98,7 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row align="center" justify="center" class="py-10 px-3">
+      <v-row align="center" justify="center" class="py-10 px-3" :class="{'mb-6' : $vuetify.breakpoint.mdAndUp}">
         <v-btn
           v-if="visibleMoreBtn"
           dark
@@ -128,7 +129,7 @@
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
-        </v-spacer>
+        <v-spacer />
       </v-snackbar>
     </v-container>
     <v-dialog v-model="openQr" max-width="310">
@@ -169,7 +170,7 @@ export default {
   },
   head () {
     return {
-      title: 'Главная'
+      title: 'Ваши письма'
     }
   },
   computed: {

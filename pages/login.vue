@@ -124,8 +124,13 @@ export default {
         this.errorAlert = true
         this.clear()
       } else {
+        this.$cookies.set('DK8x42#FY5zD', 'Gx%t*&FE9gwJ', {
+          path: '/',
+          // sameSite: 'None',
+          // secure: true,
+          maxAge: 60 * 60 * 24 * 7
+        })
         this.$v.$touch()
-        this.$store.dispatch('login')
         this.$store.dispatch('set_role', response.data.role)
         setTimeout(() => {
           this.$router.push('/admin')

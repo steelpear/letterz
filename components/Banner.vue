@@ -28,6 +28,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: aitf 8s linear forwards;
+    animation-delay: 2.5s;
     transform: translate3d(0,0,0);
     backface-visibility: hidden;
   }

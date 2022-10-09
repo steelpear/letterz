@@ -1,13 +1,13 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    script: [
-      {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3641381156579262',
-        async: true,
-        crossorigin: 'anonymous'
-      }
-    ],
+    // script: [
+    //   {
+    //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3641381156579262',
+    //     async: true,
+    //     crossorigin: 'anonymous'
+    //   }
+    // ],
     titleTemplate: '%s - Письма, благодарности, поздравления',
     title: 'Письма',
     htmlAttrs: {
@@ -16,9 +16,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'yandex-verification', content: '5c8fdce64423a114' },
-      { name: 'google-site-verification', content: '35dYYpGQEhuQ949PZE4zFGB8WAMrQjTjcEz1JP2L49g' },
-      { name: 'verify-admitad', content: 'b7aac4e6af' },
+      { name: 'yandex-verification', content: '6287232815d2dd3b' },
+      { name: 'google-site-verification', content: 'WHIEEGCAVjwul6FX90-buGOLVJ4bB3NMQlHqLZiSTH4' },
+      // { name: 'verify-admitad', content: 'b7aac4e6af' },
       { hid: 'description', name: 'description', content: 'На этом сайте можно написать письмо, поздравить коллег или родных, поблагодарить врача или учителя, попросить о помощи, оставить отзыв, заявить о поиске давнего друга, просто поделиться мыслями и многое другое. Это сайт о людях и для людей. Пишите письма - это ничего не стоит и это бесценно.' },
       { hid: 'keywords', name: 'keywords', content: 'поздравления онлайн бесплатно, поздравления онлайн с новым годом, поздравления на все случаи, слова благодарности, благодарности родителям, ищу тебя, помощь детям, письма онлайн' }
     ],
@@ -44,7 +44,7 @@ export default {
 
   env: {
     VUE_APP_URL: process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://xn----7sbbf5ab2awt9d6b.xn--p1ai',
-    VUE_APP_SERVER: process.env.NODE_ENV !== 'production' ? 'http://localhost:3001' : 'https://xn----7sbbf5ab2awt9d6b.xn--p1ai'
+    VUE_APP_SERVER: process.env.NODE_ENV !== 'production' ? 'http://localhost:3001' : 'https://xn----7sbbf5ab2awt9d6b.xn--p1ai:3001'
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -67,13 +67,13 @@ export default {
       Disallow: '/admin'
     }],
     '@nuxtjs/sitemap',
-    'vue2-editor/nuxt',
+    ['vue2-editor/nuxt'],
     '@nuxtjs/yandex-metrika'
   ],
 
   yandexMetrika: {
-    id: '85812509',
-    webvisor: true
+    id: '90615645',
+    webvisor: false
     // clickmap: false,
     // useCDN: false,
     // trackLinks: false,

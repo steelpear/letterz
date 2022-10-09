@@ -178,32 +178,37 @@
         color="#2c3b42"
         :class="$vuetify.breakpoint.mobile ? 'pa-8' : 'py-10 px-16'"
       >
-        <v-row justify="center" :class="{'text-center':$vuetify.breakpoint.xsOnly}">
-          <v-col cols="12" md="4" sm="5" xs="12" :class="{'pl-8' : $vuetify.breakpoint.mdAndUp}">
-            <p>&copy; {{ new Date().getFullYear() }} all-letters.ru</p>
-            <p>
+        <v-row justify="center" align="center" :class="{'text-center' : $vuetify.breakpoint.xsOnly}">
+          <v-col cols="12" md="4" sm="5" xs="12">
+            <p class="mb-2">
+              &copy; {{ new Date().getFullYear() }} &nbsp;ваши-письма.рф
+            </p>
+            <p class="mb-2">
               <nuxt-link to="/rules" class="text-decoration-underline">
                 Правила размещения писем
               </nuxt-link>
             </p>
-            <p>Вопросы и предложения: <a href="mailto:steelpear@gmail.com">steelpear@gmail.com</a></p>
+            <p class="mb-0">
+              Вопросы и предложения: <a href="mailto:steelpear@gmail.com">steelpear@gmail.com</a>
+            </p>
           </v-col>
           <v-spacer />
-          <v-col cols="12" md="4" sm="5" xs="12" :class="{'pl-12' : $vuetify.breakpoint.mdAndUp}">
-            <v-row align="center" :justify="$vuetify.breakpoint.xsOnly ? 'center' : 'start'" class="ml-0 mb-4">
+          <v-col v-if="!$vuetify.breakpoint.mobile" class="text-center">
+            <img src="ZZ.svg" width="100">
+          </v-col>
+          <v-spacer />
+          <v-col cols="12" md="4" sm="5" xs="12" :class="{'pl-16' : $vuetify.breakpoint.mdAndUp}">
+            <v-row align="center" :justify="$vuetify.breakpoint.xsOnly ? 'center' : 'start'" class="ml-0" :class="$vuetify.breakpoint.xsOnly ? 'mb-3' : 'my-2'">
               <div v-if="!$vuetify.breakpoint.mobile" class="mr-2">
                 Поделиться
               </div>
               <share :url="url" title="Напишите письмо, благодарность, поздравление." />
             </v-row>
             <p class="mb-2">
-              <a href="https://qr-board.ru/" target="_blank">QR-Board - Доска объявлений</a>
+              <a href="https://qr-board.ru/" target="_blank">QR-Board - доска объявлений</a>
             </p>
-            <p class="mb-2">
-              <a href="https://qr-generator.ru/" target="_blank">QR-Generator - Генератор QR-кодов</a>
-            </p>
-            <p class="mb-2">
-              <a href="https://novocomm.ru/" target="_blank">Novocomm.ru - Агрегатор новостей</a>
+            <p class="mb-0">
+              <a href="https://novocomm.ru/" target="_blank">Novocomm.ru - агрегатор новостей</a>
             </p>
           </v-col>
         </v-row>
@@ -256,9 +261,7 @@
 <script>
 import Share from '~/components/Share.vue'
 export default {
-  components: {
-    Share
-  },
+  components: { Share },
   data () {
     return {
       cookiePolicy: false,

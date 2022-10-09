@@ -184,8 +184,8 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="red"
-            plain
+            color="green"
+            class="mr-3"
             text
             @click="errorDialog = false"
           >
@@ -354,7 +354,7 @@ export default {
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
         [{ align: [] }],
         [{ list: 'ordered' }, { list: 'bullet' }],
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        [{ header: [1, 2, 3, 4, false] }],
         [{ color: [] }, { background: [] }],
         ['link', 'image']
       ]
@@ -438,30 +438,30 @@ export default {
       } else {
         this.sended = true
         setTimeout(() => { this.sended = false }, 1500)
-      }
-      const response = await this.$axios.get(process.env.VUE_APP_SERVER + '/api/records/count')
-      this.id = response.data + 200
-      try {
-        await this.$axios.post(process.env.VUE_APP_SERVER + '/api/records', {
-          letterId: this.id,
-          letterName: this.name,
-          letterEmail: this.email,
-          letterTitle: this.title,
-          letterCategory: this.category,
-          letterText: this.text,
-          letterAvatar: this.avatar,
-          letterDate: new Date(),
-          letterPublic: false
-        })
-        this.clearForm()
-        this.recaptcha = false
-        this.$refs.recaptcha.reset()
-        this.mailer()
-        setTimeout(() => {
-          this.sendedDialog = true
-        }, 2500)
-      } catch (e) {
-        this.tooLarge = true
+        const response = await this.$axios.get(process.env.VUE_APP_SERVER + '/api/records/count')
+        this.id = response.data + 200
+        try {
+          await this.$axios.post(process.env.VUE_APP_SERVER + '/api/records', {
+            letterId: this.id,
+            letterName: this.name,
+            letterEmail: this.email,
+            letterTitle: this.title,
+            letterCategory: this.category,
+            letterText: this.text,
+            letterAvatar: this.avatar,
+            letterDate: new Date(),
+            letterPublic: false
+          })
+          this.clearForm()
+          this.recaptcha = false
+          this.$refs.recaptcha.reset()
+          this.mailer()
+          setTimeout(() => {
+            this.sendedDialog = true
+          }, 2500)
+        } catch (e) {
+          this.tooLarge = true
+        }
       }
     },
     clearForm () {
@@ -484,7 +484,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss">
   .letter_wrap {
     background: white;
     .letter_title {
@@ -503,4 +503,8 @@ export default {
       margin-right: auto;
     }
   }
-</style>
+  .v-list-item {
+    min-height: 36px !important;
+    .v-list-item__content { padding: 6px 0 !important; }
+  }
+  </style>
